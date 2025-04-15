@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mubashersa-task-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mubashersa-task-app
+  template:
+    metadata:
+      labels:
+        app: mubashersa-task-app
+    spec:
+      containers:
+        - name: mubashersa-task-app
+          image: mubashersa-task-app:latest
+          ports:
+            - containerPort: 3000
